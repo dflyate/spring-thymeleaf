@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout1 :: head"></head>
+
+<body>
+
+	<header th:replace="layout/layout1 :: header"></header>
+	<div class="container">
+
+		<form th:action="@{/vehiculos/form}" th:object="${vehiculo}" method="post">
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="placa">Placa</label>
+					<input type="text" class="form-control" th:field="*{placa}" id="placa" placeholder="Placa">
+					<small class="form-text text-danger"
+						th:if="${#fields.hasErrors('placa')}" th:errors="*{placa}"></small>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="motor">Motor</label>
+					<input type="text" class="form-control" th:field="*{motor}" id="motor" placeholder="Motor">
+					<small class="form-text text-danger"
+						th:if="${#fields.hasErrors('motor')}" th:errors="*{motor}"></small>
+				</div>
+			</div>
+			
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="chasis">Chasis</label>
+					<input type="text" class="form-control" th:field="*{chasis}" id="chasis" placeholder="Chasis">
+					<small class="form-text text-danger"
+						th:if="${#fields.hasErrors('chasis')}" th:errors="*{chasis}"></small>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="fechaMatricula">Fecha de Matrícula</label>
+					<input type="date" class="form-control" th:field="*{fechaMatricula}" id="fechaMatricula" placeholder="Fecha">
+					<small class="form-text text-danger"
+						th:if="${#fields.hasErrors('fechaMatricula')}" th:errors="*{fechaMatricula}"></small>
+				</div>
+			</div>
+			
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="pasajerosSentados">Pasajeros Sentados</label>
+					<input type="number"  min="0" class="form-control" th:field="*{pasajerosSentados}" id="pasajerosSentados" placeholder="Pasajeros Sentados">
+					<small class="form-text text-danger"
+						th:if="${#fields.hasErrors('pasajerosSentados')}" th:errors="*{pasajerosSentados}"></small>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="pasajerosPie">Pasajeros de Pie</label>
+					<input type="number"  min="0" class="form-control" th:field="*{pasajerosPie}" id="pasajerosPie" placeholder="Pasajeros de Pie">
+					<small class="form-text text-danger"
+						th:if="${#fields.hasErrors('pasajerosPie')}" th:errors="*{pasajerosPie}"></small>
+				</div>
+			</div>
+			
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="pesoSeco">Peso Seco</label>
+					<input type="number" step=".01" min="0" class="form-control" th:field="*{pesoSeco}" id="pesoSeco" placeholder="Peso Seco">
+					<small class="form-text text-danger"
+						th:if="${#fields.hasErrors('pesoSeco')}" th:errors="*{pesoSeco}"></small>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="pesoBruto">Peso Bruto</label>
+					<input type="number" step=".01"  min="0" class="form-control" th:field="*{pesoBruto}" id="pesoBruto" placeholder="Peso Bruto">
+					<small class="form-text text-danger"
+						th:if="${#fields.hasErrors('pesoBruto')}" th:errors="*{pesoBruto}"></small>
+				</div>
+			</div>
+			
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="puertas">Puertas</label>
+					<input type="number" class="form-control"  min="0" th:field="*{puertas}" id="puertas" placeholder="Puertas">
+					<small class="form-text text-danger"
+						th:if="${#fields.hasErrors('puertas')}" th:errors="*{puertas}"></small>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="marca">Marca</label>
+					<input type="text" class="form-control" th:field="*{marca}" id="marca" placeholder="Marca">
+					<small class="form-text text-danger"
+						th:if="${#fields.hasErrors('marca')}" th:errors="*{marca}"></small>
+				</div>
+			</div>
+			
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="linea">Línea</label>
+					<input type="text" class="form-control" th:field="*{linea}" id="linea" placeholder="Línea">
+					<small class="form-text text-danger"
+						th:if="${#fields.hasErrors('linea')}" th:errors="*{linea}"></small>
+				</div>
+			</div>
+			
+			
+			<button type="submit" class="btn btn-primary">Guardar</button>
+		</form>
+
+	</div>
+
+</body>
+
+</html>

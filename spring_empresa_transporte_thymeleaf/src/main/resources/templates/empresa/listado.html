@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout1 :: head"></head>
+
+<body>
+	
+	<header th:replace="layout/layout1 :: header" ></header>
+	
+	<a class="btn btn-primary ml-5" th:href="@{/empresas/form}" th:text="#{text.empresa.nuevo}" th:if="${visibleOpciones} == true"></a>
+	
+	<div class="card-body table-responsive">
+		
+	<table class="table table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th th:text="#{text.empresa.tipoDocumento}"></th>
+				<th th:text="#{text.empresa.numeroDocumento}"></th>
+				<th th:text="#{text.empresa.nombreCompleto}"></th>
+				<th th:text="#{text.empresa.direccion}"></th>
+				<th th:text="#{text.empresa.ciudad}"></th>
+				<th th:text="#{text.empresa.departamento}"></th>
+				<th th:text="#{text.empresa.pais}"></th>
+				<th th:text="#{text.empresa.telefono}"></th>
+				<th th:text="#{text.empresa.acciones}"></th>
+			</tr>
+		</thead>
+		<tbody  style="font-weight: normal;">
+			<tr th:each="empresa: ${empresas}">
+				<td th:text="${empresa.tipoDocumento}"></td>
+				<td th:text="${empresa.numeroDocumento}"></td>
+				<td th:text="${empresa.nombreCompleto}"></td>
+				<td th:text="${empresa.direccion}"></th>
+				<td th:text="${empresa.ciudad}"></th>
+				<td th:text="${empresa.departamento}"></th>
+				<td th:text="${empresa.pais}"></th>
+				<td th:text="${empresa.telefono}"></td>
+				<td >
+					<a class="btn btn-primary" th:if="${visibleOpciones} == true" th:href="@{/empresas/detalleVehiculos/} + ${empresa.idEmpresa}" th:text="#{text.empresa.vehiculos}"></a>
+					<a class="btn btn-primary" th:if="${visibleOpciones} == false" th:href="@{/empresas/detalleVehiculosActualizacion/} + ${empresa.idEmpresa}" th:text="#{text.empresa.vehiculos}"></a>
+					<a class="btn btn-secondary" th:href="@{/empresas/form/} + ${empresa.idEmpresa}" th:text="#{text.empresa.editar}" th:if="${visibleOpciones} == true"></a>
+					<a class="btn btn-danger" onclick="return confirm('Está seguro de eliminar la empresa seleccionada?');" th:href="@{/empresas/eliminar/} + ${empresa.idEmpresa}" th:text="#{text.empresa.eliminar}" th:if="${visibleOpciones} == true"></a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	
+</body>
+
+</html>

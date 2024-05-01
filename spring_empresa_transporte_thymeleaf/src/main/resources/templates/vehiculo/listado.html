@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout1 :: head"></head>
+
+<body>
+	<header th:replace="layout/layout1 :: header"></header>
+	
+	<a class="btn btn-primary ml-5" th:href="@{/vehiculos/form}" th:text="#{text.vehiculo.nuevo}"></a>
+
+	<div class="card-body table-responsive">
+
+		<table class="table table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th th:text="#{text.vehiculo.placa}"></th>
+					<th th:text="#{text.vehiculo.motor}"></th>
+					<th th:text="#{text.vehiculo.chasis}"></th>
+					<th th:text="#{text.vehiculo.fechaMatricula}"></th>
+					<th th:text="#{text.vehiculo.pasajerosSentados}"></th>
+					<th th:text="#{text.vehiculo.pasajerosPie}"></th>
+					<th th:text="#{text.vehiculo.pesoSeco}"></th>
+					<th th:text="#{text.vehiculo.pesoBruto}"></th>
+					<th th:text="#{text.vehiculo.puertas}"></th>
+					<th th:text="#{text.vehiculo.marca}"></th>
+					<th th:text="#{text.vehiculo.linea}"></th>
+					<th th:text="#{text.vehiculo.acciones}"></th>
+				</tr>
+			</thead>
+			<tbody style="font-weight: normal;">
+				<tr th:each="vehiculo: ${vehiculos}">
+					<th th:text="${vehiculo.placa}"></th>
+					<th style="font-weight: normal;" th:text="${vehiculo.motor}"></th>
+					<th style="font-weight: normal;" th:text="${vehiculo.chasis}"></th>
+					<th style="font-weight: normal;" th:text="${vehiculo.fechaMatricula}"></th>
+					<th style="font-weight: normal;" th:text="${vehiculo.pasajerosSentados}"></th>
+					<th style="font-weight: normal;" th:text="${vehiculo.pasajerosPie}"></th>
+					<th style="font-weight: normal;" th:text="${vehiculo.pesoSeco}"></th>
+					<th style="font-weight: normal;" th:text="${vehiculo.pesoBruto}"></th>
+					<th style="font-weight: normal;" th:text="${vehiculo.puertas}"></th>
+					<th style="font-weight: normal;" th:text="${vehiculo.marca}"></th>
+					<th style="font-weight: normal;" th:text="${vehiculo.linea}"></th>
+					<td>
+					<a class="btn btn-secondary" th:href="@{/vehiculos/form/} + ${vehiculo.idVehiculo}" th:text="#{text.vehiculo.editar}"></a>
+					<a class="btn btn-danger" th:href="@{/vehiculos/eliminar/} + ${vehiculo.idVehiculo}" th:text="#{text.vehiculo.eliminar}"></a>
+				</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout1 :: head"></head>
+
+<body>
+	<header th:replace="layout/layout1 :: header"></header>
+		<a class="btn btn-primary ml-5" th:href="@{/conductores/form}"  th:text="#{text.conductor.nuevo}"></a>
+	<div class="card-body table-responsive">
+		
+	<table class="table table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th th:text="#{text.conductor.tipoIdentificacion}"></th>
+				<th th:text="#{text.conductor.numeroIdentificacion}"></th>
+				<th th:text="#{text.conductor.nombreCompleto}"></th>
+				<th th:text="#{text.conductor.direccion}"></th>
+				<th th:text="#{text.conductor.ciudad}"></th>
+				<th th:text="#{text.conductor.departamento}"></th>
+				<th th:text="#{text.conductor.pais}"></th>
+				<th th:text="#{text.conductor.telefono}"></th>
+				<th th:text="#{text.conductor.acciones}"></th>
+			</tr>
+		</thead>
+		<tbody  style="font-weight: normal;">
+			<tr th:each="conductor: ${conductores}">
+				<th th:text="${conductor.tipoIdentificacion}"></th>
+				<th style="font-weight: normal;" th:text="${conductor.numeroIdentificacion}"></th>
+				<th style="font-weight: normal;" th:text="${conductor.nombreCompleto}"></th>
+				<th style="font-weight: normal;" th:text="${conductor.direccion}"></th>
+				<th style="font-weight: normal;" th:text="${conductor.ciudad}"></th>
+				<th style="font-weight: normal;" th:text="${conductor.departamento}"></th>
+				<th style="font-weight: normal;" th:text="${conductor.pais}"></th>
+				<th style="font-weight: normal;" th:text="${conductor.telefono}"></th>
+				<td>
+					<a class="btn btn-primary" th:href="@{/conductores/detalleVehiculos/} + ${conductor.idConductor}" th:text="#{text.empresa.vehiculos}"></a>
+					<a class="btn btn-secondary" th:href="@{/conductores/form/} + ${conductor.idConductor}"  th:text="#{text.conductor.editar}"></a>
+					<a class="btn btn-danger" th:href="@{/conductores/eliminar/} + ${conductor.idConductor}" th:text="#{text.conductor.eliminar}"></a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+</body>
+
+</html>
