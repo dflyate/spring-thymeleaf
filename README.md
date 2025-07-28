@@ -7,7 +7,7 @@ Aplicación web para gestionar empresas, vehículos y conductores.
 ## Tecnologías utilizadas
 
 - **Frontend:** Thymeleaf 3.1.1
-- **Backend:** JPA 3.1, Hibernate 6.1.7, Spring Boot 3.0.6, Maven 3.8.6
+- **Backend:** JPA 3.1, Hibernate 6.1.7, Spring Boot 3.0.6, Maven 3.8.6, JDK 17
 - **Base de datos:** MySQL 8
 
 ---
